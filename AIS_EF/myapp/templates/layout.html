@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200&display=swap" rel="stylesheet" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <main>
+      <section id="menu">
+        <div>
+          <img src="{% static 'img/admin.png' %}" alt="admin" />
+        </div>
+        <div class="m-text">
+          2113110000 - ASUNCION & INCA & SAHUMA 2023-II<br />
+          Ingeniería de Sistemas
+        </div>
+        <div class="m-text">
+          Ultima Conexión<p>
+            Fecha :{% now 'd/m/Y' %}
+          </p>
+          <p>
+            Hora :{% now 'H:i' %}
+          </p>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <img class="icon" src="{% static 'img/home-solid.svg' %}" alt="logo"/>
+              <a href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li>
+              <img class="icon" src="{% static 'img/user-solid.svg' %}" alt="logo"/>
+              <a href="{% url 'integrantes' %}">Integrantes</a>
+            </li>
+            <li>
+              <img class="icon" src="{% static 'img/star-half-solid.svg' %}" alt="logo"/>
+              <a href="{% url 'v_crear_producto' %}">Crear producto</a>
+            </li>
+            <li>
+              <img class="icon" src="{% static 'img/eject-solid.svg' %}" alt="logo"/>
+              <a href="{% url 'v_crear_curso' %}">Crear curso</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <section id="content">
+        <div id="content-header">
+          <div id="logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo" width="30px" />
+          </div>
+          <div id="button-calendar">
+            <button>ASUNCION & SAHUMA & INCA</button>
+          </div>
+        </div>
+        <div id="content-1">
+          {% block content %}
+
+          {% endblock %}
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
