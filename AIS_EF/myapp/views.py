@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Producto
-
-# Create your views here.
+from .models import Producto, Curso
 
 
 def index(request):
@@ -30,3 +28,14 @@ def crear_producto(request):
 
 def v_crear_curso(request):
     return render(request, 'crear_curso.html')
+
+def crear_curso(request):
+    codigo= request.POST['cod']
+    nombre= request.POST['nombre']
+    horas=request.POST['horas']
+    creditos=request.POST['creditos']
+    fecha_registro=request.POST['fecha_registro']
+    estado=request.POST['estado']
+    curso = Curso.objects.create(codigo=codigo, nombre=nombre, horas=horas, creditos=creditos, 
+    fecha_registro=fecha_registro, estado=estado)
+    return redirect('/v_crear_curso')
